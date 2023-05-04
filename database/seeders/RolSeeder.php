@@ -38,13 +38,28 @@ class RolSeeder extends Seeder
 
         Permission::create(['name'=>'editarTarea.view'])->syncRoles([$role2]);
         Permission::create(['name'=>'eliminarTarea'])->syncRoles([$role2]);
+        
+        Permission::create(['name'=>'actividadU.view'])->syncRoles([$role2]);
+        Permission::create(['name'=>'DocActividadU.view'])->syncRoles([$role2]);
+        Permission::create(['name'=>'TareaActividadU.view'])->syncRoles([$role2]);
 
+        Permission::create(['name'=>'actividad.view'])->syncRoles([$role1]);
+        Permission::create(['name'=>'DocActividad.view'])->syncRoles([$role1]);
+        Permission::create(['name'=>'TareaActividad.view'])->syncRoles([$role1]);
 
         $user = new User();
-        $user->fullname = 'Carla Cruz';
-        $user->ci = '8226422';       
-        $user->email = 'carla.ccc344@gmail.com';       
-        $user->password = bcrypt('12345');
+        $user->fullname = 'Franz Garcia';
+        $user->ci = '6369345';       
+        $user->email = 'franz@gmail.com';       
+        $user->password = bcrypt('123123');
+        $user->save();
+        $user->assignRole('autoridad');
+
+        $user = new User();
+        $user->fullname = 'Guillermo Cespedes Lazarte';
+        $user->ci = '5880289 SC';       
+        $user->email = 'guillermo@gmail.com';       
+        $user->password = bcrypt('123123');
         $user->save();
         $user->assignRole('autoridad');
     }

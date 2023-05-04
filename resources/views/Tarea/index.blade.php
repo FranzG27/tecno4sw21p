@@ -51,7 +51,7 @@
                                 {{$estado_nombre}}
                             </td>
                             <td>
-                                @can('updeditarTarea.view')
+                                @can('editarTarea.view')
                                 <a href="{{ route('editarTarea.view',array($tarea->id,$actividad->id)) }}" 
                                     class="btn btn-primary btn-sm fas fa-edit  cursor-pointer"></a>
                                     

@@ -141,50 +141,68 @@
                 <div x-show="open" class="mt-2 space-y-2 px-7" role="menu" arial-label="Pages">
                   <!-- active & hover classes 'text-gray-700 dark:text-light' -->
                   <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
-                  <a
+                  
+                  @can('DocActividad.view')
+                    <a
                     href="{{route('DocActividad.view')}}"
                     role="menuitem"
                     class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
                   >
                     Gestionar Documento
                   </a>
-                  <a
+                  @endcan
+
+                  @can('DocActividadU.view')
+                    <a
                     href="{{route('DocActividadU.view')}}"
                     role="menuitem"
                     class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
-                  >
+                    >
                     Mis Documentos
-                  </a>
-                  <a
+                   </a>
+                  @endcan
+                  
+
+                  @can('actividad.view')
+                    <a
                     href="{{route('actividad.view')}}"
                     role="menuitem"
                     class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
                   >
                     Gestionar Actividad 
                   </a>
+                  @endcan
 
-                  <a
+                  @can('actividadU.view')
+                    <a
                     href="{{route('actividadU.view')}}"
                     role="menuitem"
                     class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
                   >
                     Mis Actividades 
-                  </a>
+                    </a>
+                  @endcan
                   
-                  <a
-                    href="{{route('TareaActividad.view')}}"
-                    role="menuitem"
-                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
-                  >
-                  Gestionar Tareas 
-                  </a>
-                  <a
+                  @can('TareaActividad.view')
+                      <a
+                      href="{{route('TareaActividad.view')}}"
+                      role="menuitem"
+                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
+                    >
+                       Gestionar Tareas 
+                    </a>
+                  @endcan
+
+                  @can('TareaActividadU.view')
+                    <a
                     href="{{route('TareaActividadU.view')}}"
                     role="menuitem"
                     class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
                   >
                   Mis Tareas 
-                  </a>
+                  </a> 
+                  @endcan
+                  
                   <a
                     href="pages/blank.html"
                     role="menuitem"
@@ -241,14 +259,16 @@
                 <div x-show="open" class="mt-2 space-y-2 px-7" role="menu" aria-label="Authentication">
                   <!-- active & hover classes 'text-gray-700 dark:text-light' -->
                   <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
-                
-                  <a
-                  href="{{route('user.index') }}"
-                  role="menuitem"
-                  class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                >
-                  Gestionar Usuario
-                </a>
+                @can('user.index')
+                <a
+                href="{{route('user.index') }}"
+                role="menuitem"
+                class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
+              >
+                Gestionar Usuario
+              </a>
+                @endcan
+
                 <a
                 href="{{route('editaruser') }}"
                 role="menuitem"

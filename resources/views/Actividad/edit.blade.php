@@ -8,7 +8,7 @@
     <div class="max-w-lg px-4 py-6  bg-white rounded-md dark:bg-darker ">
         <h1 class="text-xl font-semibold text-center">Editar Actividad</h1>
 
-        <form action="{{ route('editarActividad',$actividad->id) }}" class="space-y-6 " method="POST" novalidate  enctype="multipart/form-data">
+        <form action="{{ route('editarActividadA',$actividad->id) }}" class="space-y-6 " method="POST" novalidate  enctype="multipart/form-data">
             @csrf
             @method('POST')
           <input
@@ -33,16 +33,7 @@
           <small class="text-danger" style="color: red">*{{ $message }}</small>
           <br>
           @enderror
-          <input
-            class="w-full px-4 py-2 border rounded-md dark:bg-darker dark:border-gray-700 focus:outline-none focus:ring focus:ring-primary-100 dark:focus:ring-primary-darker"
-            type="text"
-            name="observation"
-            value="{{old('observacion',$actividad->observation)}}"
-          />
-          @error('observation')
-          <small class="text-danger" style="color: red">*{{ $message }}</small>
-          <br>
-          @enderror
+          
           <input
             class="w-full px-4 py-2 border rounded-md dark:bg-darker dark:border-gray-700 focus:outline-none focus:ring focus:ring-primary-100 dark:focus:ring-primary-darker"
             type="date"

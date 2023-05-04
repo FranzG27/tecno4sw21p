@@ -82,10 +82,13 @@ class UserController extends Controller
             $user->password = bcrypt(($request->password));
             // $usuario->password = $request->password;
         }
-        $user->roles()->sync($request->roles);
-       
+        
+        if ($request->ci <> '') {
+            $user->ci = $request->ci;
+        }
+        $user->roles()->sync($request->roles);      
         $user->save();
-        return redirect('/');
+        return view('pagina');
     }
 
 

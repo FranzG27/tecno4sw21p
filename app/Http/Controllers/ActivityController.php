@@ -113,6 +113,25 @@ class ActivityController extends Controller
         return redirect()->route('actividad.view');
     }
 
+    public function editarActividadViewUser(Activity $actividad){
+        $actividad=Activity::where('id',$actividad->id)->first();
+
+        $statuses=DB::table('statuses')
+        ->where('estado', '=', 1)
+        ->get();
+
+        return view('Actividad.editUser',compact('actividad','statuses'));
+    }
+
+    public function editarActividadUser(Request $request, Activity $actividad){
+        $validate=$request->validate([
+            'id_status'=>['required'],       
+        ]);
+
+        $actividad->update($validate);
+        return redirect()->route('actividadU.view');
+    }
+
 
     public function eliminarActividad(Activity $actividad){
         $actividad->estado=0;

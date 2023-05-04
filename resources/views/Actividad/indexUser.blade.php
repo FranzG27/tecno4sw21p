@@ -45,7 +45,7 @@
                                 {{$estado_nombre}}
                             </td>
                             <td>
-                                <a href="{{ route('editarActividad.view',$actividad->id) }}" class="btn btn-primary btn-sm fas fa-edit  cursor-pointer"></a>
+                                <a href="{{ route('editarActividadU.view',$actividad->id) }}" class="btn btn-primary btn-sm fas fa-edit  cursor-pointer"></a>
                                 @can('eliminarActividad')
                                 <form action="{{ route('eliminarActividad',$actividad->id) }}" method="post">
                                     @csrf

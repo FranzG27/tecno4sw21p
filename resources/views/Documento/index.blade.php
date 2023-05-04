@@ -37,9 +37,8 @@
                                     <td>{{ $i++ }}</td>
                                     <td data-label="nombre">{{ $documento->name }}</td>
                                     <td data-label="url">
-                                        <a href="{{ asset('/storage/' . $documento->url) }}">
-                                            Archivo...
-                                        </a>
+                                        <a href='../../../storage/app/public/Documentos'.$documento->url>>Archivo....</a>
+                                        <a href="">   </a>
                                     </td>
                                     <td>
                                         @can('editarDocumento.view')

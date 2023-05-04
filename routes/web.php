@@ -20,23 +20,30 @@ use App\Http\Controllers\GraficaController;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('pagina');
 })->middleware('auth');
 
 
 /*Route::get('/', function () {
     return view('auth.login');
-});*/
+});
 
-//Route::view('dashboard', 'pagina')->name('dashboard')->middleware('auth');
+Route::view('dashboard', 'pagina')->name('dashboard')->middleware('auth');
+Route::view('login', 'auth.login')->name('login');*/
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
 Route::view('login', 'auth.login')->name('login');
+Route::view('dashboard', 'pagina')->name('dashboard')->middleware('auth');
 
 Route::post('login', function(){
     $credencial=  request()->only('email', 'password');
     if (Auth::attempt($credencial)){
         request()->session()->regenerate();
-        return redirect('/');
+        return redirect('dashboard');
     }
     return redirect()->route('login');
 });
@@ -53,8 +60,10 @@ Route::get('/ActividadView',[ActivityController::class,'viewActividadesAutoridad
 Route::get('/ActividadViewUser',[ActivityController::class,'viewActividadesUser'])->name('actividadU.view');
 Route::get('/ActividadNuevo',[ActivityController::class,'crearActividadView'])->name('crearActividad.view');
 Route::post('/ActividadNuevo',[ActivityController::class,'crearActividad'])->name('crearActividad');
-Route::get('/ActividadEdit/{actividad}',[ActivityController::class,'editarActividadView'])->name('editarActividad.view');
-Route::post('/ActividadEdit/{actividad}',[ActivityController::class,'editarActividad'])->name('editarActividad');
+Route::get('/ActividadEditA/{actividad}',[ActivityController::class,'editarActividadView'])->name('editarActividadA.view');
+Route::post('/ActividadEditA/{actividad}',[ActivityController::class,'editarActividad'])->name('editarActividadA');
+Route::get('/ActividadEdit/{actividad}',[ActivityController::class,'editarActividadViewUser'])->name('editarActividadU.view');
+Route::post('/ActividadEdit/{actividad}',[ActivityController::class,'editarActividadUser'])->name('editarActividadU');
 Route::delete('/ActividadDestroy/{actividad}',[ActivityController::class,'eliminarActividad'])->name('eliminarActividad');
 
 //---------------------------------
